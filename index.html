@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benedict Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+</head>
+<body >
+
+    <section id="home" class="Home">      
+<nav>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Accueil</a></li>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#skills">competences</a></li>
+        <li><a href="#projet">Projets</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+<script>
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+
+hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
+
+// Fermer le menu après clic (mobile)
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+    });
+});
+</script>
+
+     
+
+        <div class="nav-container">
+    <ul>
+    <div class="p">
+    <h1 class="h1">Bonjour,moi c'est <br> <span id="nom">Benedict Nkusu </span><br> et je suis<span class="typewriter" id="typewriter"></span></h1></h1>
+    </div>
+    </ul>
+     <section>
+        <div class="main-container">
+            <div class="image">
+            
+            </div>
+            <div class="container">
+            </div>
+            <div class="typewriter"><span class="typewriter-text"></span><label for=""></label></div>
+
+        </div>
+     </section>
+     
+      <img src="IMG_20250430_152416_162.jpg.jpg" alt="Photo de profil" class="w-48 h-48 rounded-full shadow-lg object-cover">
+
+         <script>
+
+        const words = [ " Etudiante en Génie Logiciel","Développeuse Full-stack junior","Développeuse d'application","Programmeuse UX/UI design","Conceptrice de base de données"];
+        let index = 0;
+        const typewriterElement = document.getElementById("typewriter");
+
+        function type(word, i) {
+            if (i < word.length) {
+                typewriterElement.textContent += word.charAt(i);
+                setTimeout(() => type(word, i + 1), 100); // Vitesse d'affichage
+            } else {
+                setTimeout(() => erase(word, i), 2000); // Temps d'affichage du mot
+            }
+        }
+
+        function erase(word, i) {
+            if (i > 0) {
+                typewriterElement.textContent = word.slice(0, i - 1);
+                setTimeout(() => erase(word, i - 1), 100); // Vitesse d'effacement
+            } else {
+                index = (index + 1) % words.length; // Passer au mot suivant
+                setTimeout(() => type(words[index], 0), 500); // Temps avant d'afficher le mot suivant
+            }
+        }
+
+        type(words[index], 0); // Démarrer l'effet
+    </script>
+</section>
+<section id="about" class="about">
+
+  <header>
+    <h1>À propos de moi</h1>
+  </header>
+
+  <div class="container">
+
+    <div class="about-text">
+      <p>Je suis une étudiante en deuxième année de Génie Logiciel, passionnée par le développement web et la programmation. Curieuse, motivée et toujours prête à apprendre, je développe régulièrement des projets afin de renforcer mes compétences en HTML, CSS, JavaScript et Python.
+
+      Rigoureuse, loyale et dotée d’une grande intégrité, j’accorde une importance particulière à l’honnêteté, à la responsabilité et au respect des engagements. Je fais preuve d’esprit d’équipe, de persévérance et d’un sens élevé de l’organisation. Autonome mais collaborative, je sais travailler efficacement aussi bien en équipe que de manière indépendante.
+
+      Créative et orientée vers la résolution de problèmes, j’aime relever des défis techniques et concevoir des solutions innovantes, utiles et accessibles. Mon objectif est de devenir une ingénieure logicielle compétente et fiable, capable de contribuer activement à des projets à fort impact.
+     </p>
+<section class="infos-personnelles">
+
+    <div class="info-item"><i class="fa-solid fa-user"></i> Nom : Benedict Nkusu</div>
+    <div class="info-item"><i class="fa-solid fa-cake-candles"></i> Date de naissance : 1er Janvier 2007</div>
+    <div class="info-item"><i class="fa-solid fa-calendar-days"></i> Âge : 19 ans</div>
+    <div class="info-item"><i class="fa-solid fa-heart"></i> État civil : Célibataire</div>
+    <div class="info-item"><i class="fa-solid fa-flag"></i> Nationalité : Congolaise / Camerounaise</div>
+    <div class="info-item"><i class="fa-solid fa-envelope"></i> Email : benedict@email236@gmail.com</div>
+
+    <h3>Diplômes</h3>
+
+    <div class="diplomes">
+        <div class="diplome"><span>CEP</span> <span>2017</span></div>
+        <div class="diplome"><span>BEPC (Mention:ASSEZ BIEN)</span> <span>2021</span></div>
+        <div class="diplome"><span>PROBATOIRE (Mention:TRES BIEN)</span> <span>2023</span></div>
+        <div class="diplome"><span>BACCALAUREAT (Mention:BIEN)</span> <span>2024</span></div>
+    </div>
+</section>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="skills" class="competence">
+
+  <header>
+    <h1>Mes Compétences</h1>
+    <p>Étudiante en Génie Logiciel | Niveau 1</p>
+  </header>
+
+  <div class="container">
+    <div class="skills-grid">
+      <div class="skill-card">
+        <i class="fab fa-html5"></i>
+        <div class="skill-title">HTML5 / CSS3</div>
+        <div class="progress-bar">
+          <div class="progress" style="--progress-width: 90%;"></div>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <i class="fab fa-js"></i>
+        <div class="skill-title">JavaScript</div>
+        <div class="progress-bar">
+          <div class="progress" style="--progress-width: 75%;"></div>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <i class="fab fa-python"></i>
+        <div class="skill-title">Python</div>
+        <div class="progress-bar">
+          <div class="progress" style="--progress-width: 5%;"></div>
+        </div>
+      </div>
+
+       <div class="skill-card">
+        <i class="fab fa-java"></i>
+        <div class="skill-title">Java</div>
+        <div class="progress-bar">
+          <div class="progress" style="--progress-width: 20%;"></div>
+        </div>
+      </div>
+
+       <div class="skill-card">
+        <i class="fab fa-figma"></i>
+        <div class="skill-title">Figma</div>
+        <div class="progress-bar">
+          <div class="progress" style="--progress-width: 35%;"></div>
+        </div>
+      </div>
+
+       <div class="skill-card">
+        <i class="fas fa-chart-line"></i>
+        <div class="skill-title">Gestion finance</div>
+        <div class="progress-bar">
+          <div class="progress" style="--progress-width: 90%;"></div>
+        </div>
+      </div>
+
+         <div class="skill-card">
+        <i class="fab fa-php"></i>
+        <div class="skill-title">PHP</div>
+        <div class="progress-bar">
+          <div class="progress" style="--progress-width: 60%;"></div>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <i class="fab fa-git-alt"></i>
+        <div class="skill-title">Git & GitHub</div>
+        <div class="progress-bar">
+          <div class="progress" style="--progress-width: 90%;"></div>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <i class="fas fa-people-group"></i>
+        <div class="skill-title">Travail en Équipe</div>
+        <div class="progress-bar">
+          <div class="progress" style="--progress-width: 98.5%;"></div>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <i class="fas fa-people-group"></i>
+        <div class="skill-title">Leadership</div>
+        <div class="progress-bar">
+          <div class="progress" style="--progress-width: 99.5%;"></div>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <i class="fas fa-brain"></i>
+        <div class="skill-title">Résolution de Problèmes</div>
+        <div class="progress-bar">
+          <div class="progress" style="--progress-width: 90%;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="Projets" class="projet">
+        <header>
+    <h1>Mes Projets</h1>
+    <p>Voici quelques projets réalisés et encours de réalisation durant mon parcours en Genie Logiciel</p>
+  </header>
+
+  <section id="projet" class="projects">
+    <div class="project-card">
+      <h2>Site Web de gestion d'un hotel</h2>
+      <p>Une application web simple pour gérer les tâches quotidiennes avec HTML, CSS, et JavaScript.</p>
+      <a href="https://www.booking.com/searchresults.fr.html?aid=301664&label=slh1_msn-XJML7e%2A9tqkmDHGxqWvsfw-80539410984622%3Atikwd-80539563262421%3Aloc-31%3Aneo%3Amte%3Alp142071%3Adec%3Acid578710702%3Aagid1288628268895610&sid=b0e09625a5f17bc07f347e6fffa607b3&dest_id=37&dest_type=country&;msclkid=53746b62c6731612c83c02f290428fe3" target="_blank">Voir le projet</a>
+    </div>
+        <div class="project-card">
+      <h2>Site Web de gestion d'un hopital</h2>
+      <p>Ce site permet de gerer un hopital </p>
+      <a href=" https://www.hopitalbestafrica.com/" target="_blank">Voir le projet</a>
+    </div>
+    <div class="project-card">
+      <h2>Site Web d'une Banque</h2>
+      <p>Ce site permet de gerer une banque </p>
+      <a href="https://www.societegenerale.cm/" target="_blank">Voir le projet</a>
+    </div>
+
+    <div class="project-card">
+      <h2>Site Web d'une Banque</h2>
+      <p>Ce site permet de gerer une banque </p>
+      <a href="https://www.societegenerale.cm/" target="_blank">Voir le projet</a>
+    </div>
+
+    <div class="project-card">
+      <h2>Camarade portfolio</h2>
+      <p>L'implémentation de trois pages m'a été alloué dans le portfio d'une camarade</p>
+      <a href="https://github.com/GloriaTeneng/portfolio-027" target="_blank">Voir le projet</a>
+    </div>
+  </section>
+</section>
+
+
+
+
+<section id="contact" class="contact">
+  <header>
+    <h1>Contactez-moi</h1>
+  </header>
+
+  <main>
+    <form action="#" method="POST" novalidate>
+      <div class="form-group">
+        <input type="text" id="name" name="name" placeholder=" " required />
+        <label for="name">Nom complet</label>
+      </div>
+
+      <div class="form-group">
+        <input type="email" id="email" name="email" placeholder=" " required />
+        <label for="email">Adresse email</label>
+      </div>
+
+      <div class="form-group">
+        <textarea id="message" name="message" placeholder=" " required></textarea>
+        <label for="message">Votre message</label>
+      </div>
+
+      <button type="submit" class="submit-btn"><a href="https://wa.me/+237 699690317" style="text-decoration: none; color: black; font-weight: 600;">Envoyer</a></button>
+    </form>
+
+    <div class="social-links" aria-label="Réseaux sociaux">
+      <a href="https://www.linkedin.com/in/Benedict Nkusu" target="_blank" rel="noopener" title="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/BENEDICT-code220" target="_blank" rel="noopener" title="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="mailto:benedict236@gmail.com" title="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+      
+        <a href="https://wa.me/+237 699690317" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+
+        <a href="https://instagram.com/Benedict Nkusu" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <a href="https://facebook.com/Benedict Veronique Nkusu" target="_blank">
+            <i class="fa-brands fa-facebook"></i>
+        </a>
+
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 - Portfolio de Benedict | Génie Logiciel
+  </footer>
+</section>
+</body>
+</html>
