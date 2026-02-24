@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,48 +8,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
 </head>
 <body >
-
-    <section id="home" class="Home">      
-<nav>
-
-    <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Accueil</a></li>
-        <li><a href="#about">À propos</a></li>
-        <li><a href="#skills">competences</a></li>
-        <li><a href="#projet">Projets</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-
-    <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-</nav>
-<script>
-const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("navLinks");
-
-hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-});
-
-// Fermer le menu après clic (mobile)
-document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
-    });
-});
-</script>
-
-     
-
+    <section class="Home" id="top">
+     <nav>
         <div class="nav-container">
-    <ul>
-    <div class="p">
-    <h1 class="h1">Bonjour,moi c'est <br> <span id="nom">Benedict Nkusu </span><br> et je suis<span class="typewriter" id="typewriter"></span></h1></h1>
-    </div>
-    </ul>
+          <a class="brand" href="#top">
+            <span class="brand-name">Benedict Nkusu</span>
+            <span class="brand-role">Portfolio</span>
+          </a>
+          <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <ul class="nav-links" id="menu">
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#competences">Compétences</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+     </nav>
+
+     <div class="p">
+      <h1 class="h1">Bonjour, moi c'est <br> <span id="nom">Benedict Nkusu</span><br> et je suis <span class="typewriter" id="typewriter"></span></h1>
+     </div>
      <section>
         <div class="main-container">
             <div class="image">
@@ -62,13 +44,15 @@ document.querySelectorAll(".nav-links a").forEach(link => {
         </div>
      </section>
      
-      <img src="IMG_20250430_152416_162.jpg.jpg" alt="Photo de profil" class="w-48 h-48 rounded-full shadow-lg object-cover">
+      <img src="IMG_20250430_152416_162.jpg" alt="Photo de profil" class="w-48 h-48 rounded-full shadow-lg object-cover">
 
          <script>
 
-        const words = [ " Etudiante en Génie Logiciel","Développeuse Full-stack junior","Développeuse d'application","Programmeuse UX/UI design","Conceptrice de base de données"];
+        const words = ["Etudiante en Génie Logiciel","Développeuse Full-stack junior","Développeuse d'application","Programmeuse UX/UI design","Conceptrice de base de données"];
         let index = 0;
         const typewriterElement = document.getElementById("typewriter");
+        const navToggle = document.querySelector(".nav-toggle");
+        const navLinks = document.querySelector(".nav-links");
 
         function type(word, i) {
             if (i < word.length) {
@@ -90,29 +74,48 @@ document.querySelectorAll(".nav-links a").forEach(link => {
         }
 
         type(words[index], 0); // Démarrer l'effet
+
+        if (navToggle && navLinks) {
+            navToggle.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+                const expanded = navLinks.classList.contains("active");
+                navToggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+            });
+
+            navLinks.querySelectorAll("a").forEach((link) => {
+                link.addEventListener("click", () => {
+                    navLinks.classList.remove("active");
+                    navToggle.setAttribute("aria-expanded", "false");
+                });
+            });
+        }
     </script>
 </section>
-<section id="about" class="about">
+<section class="about" id="about">
 
   <header>
     <h1>À propos de moi</h1>
   </header>
 
-  <div class="container">
-
+  <div class="about-layout">
     <div class="about-text">
-      <p>Je suis une étudiante en deuxième année de Génie Logiciel, passionnée par le développement web et la programmation. Curieuse, motivée et toujours prête à apprendre, je développe régulièrement des projets afin de renforcer mes compétences en HTML, CSS, JavaScript et Python.
+      <p class="about-lead">Étudiante en Génie Logiciel, je transforme mes idées en applications web utiles.</p>
+      <p>
+        Je suis passionnée par le développement web et la programmation. Curieuse, motivée et toujours prête à apprendre, je construis des projets pour renforcer mes compétences en HTML, CSS, JavaScript, Python et PHP. Mon objectif est de devenir une ingénieure logicielle capable de créer des solutions innovantes et fiables.
+      </p>
+      <div class="about-tags">
+        <span>Développement Web</span>
+        <span>UI/UX</span>
+        <span>Bases de données</span>
+      </div>
+    </div>
 
-      Rigoureuse, loyale et dotée d’une grande intégrité, j’accorde une importance particulière à l’honnêteté, à la responsabilité et au respect des engagements. Je fais preuve d’esprit d’équipe, de persévérance et d’un sens élevé de l’organisation. Autonome mais collaborative, je sais travailler efficacement aussi bien en équipe que de manière indépendante.
-
-      Créative et orientée vers la résolution de problèmes, j’aime relever des défis techniques et concevoir des solutions innovantes, utiles et accessibles. Mon objectif est de devenir une ingénieure logicielle compétente et fiable, capable de contribuer activement à des projets à fort impact.
-     </p>
-<section class="infos-personnelles">
+    <section class="infos-personnelles">
 
     <div class="info-item"><i class="fa-solid fa-user"></i> Nom : Benedict Nkusu</div>
     <div class="info-item"><i class="fa-solid fa-cake-candles"></i> Date de naissance : 1er Janvier 2007</div>
     <div class="info-item"><i class="fa-solid fa-calendar-days"></i> Âge : 19 ans</div>
-    <div class="info-item"><i class="fa-solid fa-heart"></i> État civil : Célibataire</div>
+    <div class="info-item"><i class="fa-solid fa-heart"></i> État matrimonial : Célibataire</div>
     <div class="info-item"><i class="fa-solid fa-flag"></i> Nationalité : Congolaise / Camerounaise</div>
     <div class="info-item"><i class="fa-solid fa-envelope"></i> Email : benedict@email236@gmail.com</div>
 
@@ -121,17 +124,16 @@ document.querySelectorAll(".nav-links a").forEach(link => {
     <div class="diplomes">
         <div class="diplome"><span>CEP</span> <span>2017</span></div>
         <div class="diplome"><span>BEPC (Mention:ASSEZ BIEN)</span> <span>2021</span></div>
-        <div class="diplome"><span>PROBATOIRE (Mention:TRES BIEN)</span> <span>2023</span></div>
+        <div class="diplome"><span>PROBATOIRE (Mention:BIEN)</span> <span>2023</span></div>
         <div class="diplome"><span>BACCALAUREAT (Mention:BIEN)</span> <span>2024</span></div>
     </div>
 </section>
-    </div>
   </div>
 </section>
 
 
 
-<section id="skills" class="competence">
+<section class="competence" id="competences">
 
   <header>
     <h1>Mes Compétences</h1>
@@ -142,7 +144,10 @@ document.querySelectorAll(".nav-links a").forEach(link => {
     <div class="skills-grid">
       <div class="skill-card">
         <i class="fab fa-html5"></i>
-        <div class="skill-title">HTML5 / CSS3</div>
+        <div class="skill-head">
+          <div class="skill-title">HTML5 / CSS3</div>
+          <span class="skill-level">90%</span>
+        </div>
         <div class="progress-bar">
           <div class="progress" style="--progress-width: 90%;"></div>
         </div>
@@ -150,7 +155,10 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 
       <div class="skill-card">
         <i class="fab fa-js"></i>
-        <div class="skill-title">JavaScript</div>
+        <div class="skill-head">
+          <div class="skill-title">JavaScript</div>
+          <span class="skill-level">75%</span>
+        </div>
         <div class="progress-bar">
           <div class="progress" style="--progress-width: 75%;"></div>
         </div>
@@ -158,7 +166,10 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 
       <div class="skill-card">
         <i class="fab fa-python"></i>
-        <div class="skill-title">Python</div>
+        <div class="skill-head">
+          <div class="skill-title">Python</div>
+          <span class="skill-level">5%</span>
+        </div>
         <div class="progress-bar">
           <div class="progress" style="--progress-width: 5%;"></div>
         </div>
@@ -166,7 +177,10 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 
        <div class="skill-card">
         <i class="fab fa-java"></i>
-        <div class="skill-title">Java</div>
+        <div class="skill-head">
+          <div class="skill-title">Java</div>
+          <span class="skill-level">20%</span>
+        </div>
         <div class="progress-bar">
           <div class="progress" style="--progress-width: 20%;"></div>
         </div>
@@ -174,7 +188,10 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 
        <div class="skill-card">
         <i class="fab fa-figma"></i>
-        <div class="skill-title">Figma</div>
+        <div class="skill-head">
+          <div class="skill-title">Figma</div>
+          <span class="skill-level">35%</span>
+        </div>
         <div class="progress-bar">
           <div class="progress" style="--progress-width: 35%;"></div>
         </div>
@@ -182,7 +199,10 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 
        <div class="skill-card">
         <i class="fas fa-chart-line"></i>
-        <div class="skill-title">Gestion finance</div>
+        <div class="skill-head">
+          <div class="skill-title">Gestion finance</div>
+          <span class="skill-level">90%</span>
+        </div>
         <div class="progress-bar">
           <div class="progress" style="--progress-width: 90%;"></div>
         </div>
@@ -190,7 +210,10 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 
          <div class="skill-card">
         <i class="fab fa-php"></i>
-        <div class="skill-title">PHP</div>
+        <div class="skill-head">
+          <div class="skill-title">PHP</div>
+          <span class="skill-level">60%</span>
+        </div>
         <div class="progress-bar">
           <div class="progress" style="--progress-width: 60%;"></div>
         </div>
@@ -198,7 +221,10 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 
       <div class="skill-card">
         <i class="fab fa-git-alt"></i>
-        <div class="skill-title">Git & GitHub</div>
+        <div class="skill-head">
+          <div class="skill-title">Git & GitHub</div>
+          <span class="skill-level">90%</span>
+        </div>
         <div class="progress-bar">
           <div class="progress" style="--progress-width: 90%;"></div>
         </div>
@@ -206,7 +232,10 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 
       <div class="skill-card">
         <i class="fas fa-people-group"></i>
-        <div class="skill-title">Travail en Équipe</div>
+        <div class="skill-head">
+          <div class="skill-title">Travail en Équipe</div>
+          <span class="skill-level">98.5%</span>
+        </div>
         <div class="progress-bar">
           <div class="progress" style="--progress-width: 98.5%;"></div>
         </div>
@@ -214,7 +243,10 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 
       <div class="skill-card">
         <i class="fas fa-people-group"></i>
-        <div class="skill-title">Leadership</div>
+        <div class="skill-head">
+          <div class="skill-title">Leadership</div>
+          <span class="skill-level">99.5%</span>
+        </div>
         <div class="progress-bar">
           <div class="progress" style="--progress-width: 99.5%;"></div>
         </div>
@@ -222,7 +254,10 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 
       <div class="skill-card">
         <i class="fas fa-brain"></i>
-        <div class="skill-title">Résolution de Problèmes</div>
+        <div class="skill-head">
+          <div class="skill-title">Résolution de Problèmes</div>
+          <span class="skill-level">90%</span>
+        </div>
         <div class="progress-bar">
           <div class="progress" style="--progress-width: 90%;"></div>
         </div>
@@ -232,39 +267,44 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 </section>
 
 
-<section id="Projets" class="projet">
-        <header>
+<section class="projet" id="projets">
+  <header>
     <h1>Mes Projets</h1>
-    <p>Voici quelques projets réalisés et encours de réalisation durant mon parcours en Genie Logiciel</p>
+    <p>Voici quelques projets réalisés durant mon parcours en Génie Logiciel</p>
   </header>
-
-  <section id="projet" class="projects">
+  <section class="projects">
     <div class="project-card">
-      <h2>Site Web de gestion d'un hotel</h2>
-      <p>Une application web simple pour gérer les tâches quotidiennes avec HTML, CSS, et JavaScript.</p>
-      <a href="https://www.booking.com/searchresults.fr.html?aid=301664&label=slh1_msn-XJML7e%2A9tqkmDHGxqWvsfw-80539410984622%3Atikwd-80539563262421%3Aloc-31%3Aneo%3Amte%3Alp142071%3Adec%3Acid578710702%3Aagid1288628268895610&sid=b0e09625a5f17bc07f347e6fffa607b3&dest_id=37&dest_type=country&;msclkid=53746b62c6731612c83c02f290428fe3" target="_blank">Voir le projet</a>
+      <h2>Site Web de gestion d'un hôtel</h2>
+      <p>Un site web simple pour gérer les tâches quotidiennes avec HTML, CSS, et JavaScript.</p>
+      <a href="https://hotelproenterprise.com/" target="_blank">Voir le projet</a>
+    </div>
+
+    <div class="project-card">
+      <h2>Gestion administrative d'une entreprise</h2>
+      <p>Une application web simple C'est une plateforme en ligne qui aide une entreprise à organiser, stocker et gérer ses informations administratives sans utiliser beaucoup de papier.</p>
+      <a href="rh/login.php" target="_blank">Voir le projet</a>
     </div>
         <div class="project-card">
-      <h2>Site Web de gestion d'un hopital</h2>
-      <p>Ce site permet de gerer un hopital </p>
-      <a href=" https://www.hopitalbestafrica.com/" target="_blank">Voir le projet</a>
+      <h2>Site Web de gestion d'un hôpital</h2>
+      <p>Ce site permet de gérer un hôpital </p>
+      <a href="https://localhost-digital.com/2022/08/10/logiciels-de-gestion-des-centres-hospitaliers-au-cameroun/" target="_blank">Voir le projet</a>
     </div>
-    <div class="project-card">
-      <h2>Site Web d'une Banque</h2>
-      <p>Ce site permet de gerer une banque </p>
-      <a href="https://www.societegenerale.cm/" target="_blank">Voir le projet</a>
+            <div class="project-card">
+      <h2>Site Web d'une de gestion d'une école</h2>
+      <p>Ce site permet de gérer une école </p>
+      <a href="https://www.wacni.com/" target="_blank">Voir le projet</a>
+    </div>
+
+             <div class="project-card">
+      <h2>Site Web d'une banque</h2>
+      <p>Ce site permet de gérer une banque </p>
+      <a href="https://www.bangecmr.com/" target="_blank">Voir le projet</a>
     </div>
 
     <div class="project-card">
-      <h2>Site Web d'une Banque</h2>
-      <p>Ce site permet de gerer une banque </p>
-      <a href="https://www.societegenerale.cm/" target="_blank">Voir le projet</a>
-    </div>
-
-    <div class="project-card">
-      <h2>Camarade portfolio</h2>
-      <p>L'implémentation de trois pages m'a été alloué dans le portfio d'une camarade</p>
-      <a href="https://github.com/GloriaTeneng/portfolio-027" target="_blank">Voir le projet</a>
+      <h2>Portfolio Personnel</h2>
+      <p>Mon CV en ligne, avec effets dynamiques et design responsive.</p>
+      <a href="#" target="_blank">Voir le projet</a>
     </div>
   </section>
 </section>
@@ -272,7 +312,7 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 
 
 
-<section id="contact" class="contact">
+<section class="contact" id="contact">
   <header>
     <h1>Contactez-moi</h1>
   </header>
@@ -294,7 +334,7 @@ document.querySelectorAll(".nav-links a").forEach(link => {
         <label for="message">Votre message</label>
       </div>
 
-      <button type="submit" class="submit-btn"><a href="https://wa.me/+237 699690317" style="text-decoration: none; color: black; font-weight: 600;">Envoyer</a></button>
+      <a href="https://wa.me/+237 699690317"><button type="submit" class="submit-btn">Envoyer</button></a>
     </form>
 
     <div class="social-links" aria-label="Réseaux sociaux">
@@ -308,14 +348,17 @@ document.querySelectorAll(".nav-links a").forEach(link => {
         <i class="fas fa-envelope"></i>
       </a>
       
+        <!-- WhatsApp -->
         <a href="https://wa.me/+237 699690317" target="_blank">
             <i class="fa-brands fa-whatsapp"></i>
         </a>
 
+        <!-- Instagram -->
         <a href="https://instagram.com/Benedict Nkusu" target="_blank">
             <i class="fa-brands fa-instagram"></i>
         </a>
 
+        <!-- Facebook -->
         <a href="https://facebook.com/Benedict Veronique Nkusu" target="_blank">
             <i class="fa-brands fa-facebook"></i>
         </a>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paiement PayPal - Hôtel de Luxe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(to right, #fdfcfb, #e2d1c3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .paypal-container {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+      max-width: 460px;
+      width: 90%;
+      text-align: center;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      color: #3e2723;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #6d4c41;
+      margin-bottom: 25px;
+    }
+
+    .paypal-logo {
+      width: 80px;
+      margin-bottom: 20px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .info-box {
+      background: #fefefe;
+      border: 2px dashed #c5a880;
+      padding: 15px 20px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      color: #5d4037;
+      font-size: 15px;
+    }
+
+    .btn-paypal {
+      background: linear-gradient(135deg, #003087, #0070ba);
+      color: white;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-paypal:hover {
+      background: linear-gradient(135deg, #001f5e, #005fa3);
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="paypal-container">
+    <h2>Paiement via PayPal</h2>
+    <div class="subtitle">Sécurisé, rapide et accepté dans notre hôtel de luxe</div>
+    <img src="https://img.icons8.com/color/96/paypal.png" alt="PayPal Logo" class="paypal-logo" />
+    <div class="info-box">
+      Vous serez redirigé vers PayPal pour finaliser le paiement.<br>
+      Aucun frais supplémentaire ne sera appliqué.
+    </div>
+    <button class="btn-paypal" onclick="confirmerPayPal()">Payer avec PayPal</button>
+  </div>
+
+  <script>
+    function confirmerPayPal() {
+      alert("Redirection vers PayPal...");
+      // Ici, on pourrait déclencher une vraie redirection vers un backend ou Stripe Checkout
+      // window.location.href = "/paiement/paypal"; // Exemple fictif
+    }
+  </script>
+
+</body>
+</html>

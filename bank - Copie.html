@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body{
+        background-image:url(img.jpg);
+        background-repeat:no-repeat;
+        background-position:center;
+        background-size:cover;
+         
+      }
+      fieldset{
+        background-color: rgba(190, 214, 255, 0.6);
+        border:1px solid #f8f8f8ff;
+        border-radius: 1.5%;
+      
+      }
+   button{
+    background-color: #9cbae2ff;
+    border-radius: 5px;
+    border-radius: 3px;
+    width: 70px;
+    height: 35px;
+    margin-right: 60px;
+    margin-left: 68PX;
+    font-weight: 600;
+    margin-top: -15px;
+   }
+      fieldset{
+        width: 420px;
+        height: 400px;
+        margin: auto;
+        align-items: center;
+        box-shadow: 1px 0px 3px 1px skyblue;
+      }
+      h2{
+        text-align: center;
+      }
+      
+      input {
+        height: 25px;
+        width: 200px;
+        margin-top: -30px;
+        display: inline-block;
+        display: flex;
+        gap: 10px;
+        margin-left: 150px;  
+        background-color: #e0f7ffff;
+      
+
+      }
+      label{
+        margin-left: 45px;
+        margin-top: 10PX; 
+        font-weight:bolder;
+      
+      }
+      select{
+         height: 30px;
+        width: 206px;
+        margin-top: -40px;
+        display: inline-block;
+        display: flex;
+        gap: 10px;
+        margin-left: 150px;
+        background-color: #e0f7ffff;
+        
+      
+      }
+      form{
+        margin-top: 75px;
+      }
+      table {
+         border:1px solid #ccc;
+         margin-left:150px ;
+         width: 50px;
+         border-collapse:collapse;
+      }
+  
+    </style>
+</head>
+<body>
+  <br>  <br>  <br>  <br> 
+<fieldset>
+     <h2>Veuillez renseigner ce formulaire !</h2>
+     <form action="include.php" method="post">
+        <label for="">Numéro :</label>
+        <input type="text" name="numero"><br><br>
+        <label for="">Titulaire :</label>
+        <input type="text" name="titulaire" id=""><br><br>
+        <label for=""  style="margin-bottom: -8px;">Type :</label>
+        <select name="idtype" id="">
+          <option value="0"></option>
+          <option value="1">Epargne</option>
+          <option value="2">Courant</option>
+        </select> <br><br>
+        <label for="">Solde :</label>
+        <input type="text" name="solde" id=""><br><br><br>
+        <div id="boutton">
+            <button type="submit" name="creer" style="background-color: #5fa7ffff;" >Creer</button>
+            <button type="reset" name="annuler" style="background-color: #ff8484ff;">Annuler</button>
+        </div> 
+    </form>
+</fieldset>
+<table> 
+  <tr>
+    <th>numero</th>
+    <th>titulaire</th>
+    <th>solde</th>
+    <th>type</th>
+    <th>Actions</th>
+  </tr>
+</table>
+</body>
+</html>
